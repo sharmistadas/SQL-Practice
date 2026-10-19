@@ -1,0 +1,172 @@
+
+-- ============================================
+-- ASSIGNMENT ON CASE 2
+-- ============================================
+
+-- Q1. WAQTD DNAME of the employee whose name is SMITH
+SELECT D.DNAME
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE E.ENAME = 'SMITH';
+
+
+-- Q2. WAQTD DNAME and LOC of the employee whose ENAME is KING
+SELECT D.DNAME, D.LOC
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE E.ENAME = 'KING';
+
+
+-- Q3. WAQTD LOC of the employee whose employee number is 7902
+SELECT D.LOC
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE E.EMPNO = 7902;
+
+
+-- Q4. WAQTD DNAME, LOC and DEPTNO of employees
+-- whose name ends with 'R'
+SELECT D.DNAME, D.LOC, D.DEPTNO
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE E.ENAME LIKE '%R';
+
+
+-- Q5. WAQTD DNAME of the employee whose designation is PRESIDENT
+SELECT D.DNAME
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE E.JOB = 'PRESIDENT';
+
+
+-- Q6. WAQTD names of employees working in ACCOUNTING department
+SELECT E.ENAME
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE D.DNAME = 'ACCOUNTING';
+
+
+-- Q7. WAQTD ENAME and SAL of employees working in CHICAGO
+SELECT E.ENAME, E.SAL
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE D.LOC = 'CHICAGO';
+
+
+-- Q8. WAQTD details of employees working in SALES
+SELECT E.*
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE D.DNAME = 'SALES';
+
+
+-- Q9. WAQTD employee details along with ANNUAL SALARY
+-- if employees are working in NEW YORK
+SELECT E.*, E.SAL * 12 AS ANNUAL_SALARY
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE D.LOC = 'NEW YORK';
+
+
+-- Q10. WAQTD names of employees working in OPERATIONS
+SELECT E.ENAME
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE D.DNAME = 'OPERATIONS';
+
+
+-- ============================================
+-- ASSIGNMENT ON CASE 1 & CASE 2
+-- ============================================
+
+-- Q11. WAQTD names of employees earning more than SCOTT
+-- in ACCOUNTING department
+SELECT E.ENAME
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE E.SAL > (
+    SELECT SAL
+    FROM EMP
+    WHERE ENAME = 'SCOTT'
+)
+AND D.DNAME = 'ACCOUNTING';
+
+
+-- Q12. WAQTD details of employees working as MANAGER
+-- in the location CHICAGO
+SELECT E.*
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE E.JOB = 'MANAGER'
+AND D.LOC = 'CHICAGO';
+
+
+-- Q13. WAQTD ENAME and SAL of employees earning more than KING
+-- in ACCOUNTING department
+SELECT E.ENAME, E.SAL
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE E.SAL > (
+    SELECT SAL
+    FROM EMP
+    WHERE ENAME = 'KING'
+)
+AND D.DNAME = 'ACCOUNTING';
+
+
+-- Q14. WAQTD details of employees working as SALESMAN
+-- in the SALES department
+SELECT E.*
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE E.JOB = 'SALESMAN'
+AND D.DNAME = 'SALES';
+
+
+-- Q15. WAQTD ENAME, SAL, JOB and HIREDATE of employees
+-- working in OPERATIONS and hired before KING
+SELECT E.ENAME, E.SAL, E.JOB, E.HIREDATE
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE D.DNAME = 'OPERATIONS'
+AND E.HIREDATE < (
+    SELECT HIREDATE
+    FROM EMP
+    WHERE ENAME = 'KING'
+);
+
+
+-- Q16. Display all employees whose department names end with 'S'
+SELECT E.*
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE D.DNAME LIKE '%S';
+
+
+-- Q17. WAQTD DNAME of employees whose names contain 'A'
+SELECT DISTINCT D.DNAME
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE E.ENAME LIKE '%A%';
+
+
+-- Q18. WAQTD DNAME and LOC of employees whose salary is 800
+SELECT DISTINCT D.DNAME, D.LOC
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE E.SAL = 800;
+
+
+-- Q19. WAQTD DNAME of employees who earn commission
+SELECT DISTINCT D.DNAME
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE E.COMM IS NOT NULL;
+
+
+-- Q20. WAQTD LOC of employees if they earn commission in DEPT 40
+SELECT DISTINCT D.LOC
+FROM EMP E
+JOIN DEPT D ON E.DEPTNO = D.DEPTNO
+WHERE E.COMM IS NOT NULL
+AND E.DEPTNO = 40;

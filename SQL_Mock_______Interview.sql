@@ -7,7 +7,8 @@ HOW TO PRACTICE:
 1. Read the question.
 2. Try answering without seeing the answer.
 3. Write the SQL query yourself.
-4. Run the query and explain the result.
+4. Run the query and explain the result..
+
 
 ============================================================
 PART 1: SQL THEORY INTERVIEW QUESTIONS
@@ -172,6 +173,7 @@ SELECT MIN(SAL) FROM EMP;
 
 Q40. Find average salary.
 SELECT AVG(SAL) FROM EMP;
+
 
 Q41. Find total salary.
 SELECT SUM(SAL) FROM EMP;
@@ -359,6 +361,7 @@ SELECT COALESCE(NULL, NULL, 'AVAILABLE') FROM DUAL;
 ============================================================
 PART 8: CASE, CTE AND WINDOW FUNCTIONS
 ============================================================
+
 
 Q76. Categorize salaries.
 SELECT ENAME, SAL,
@@ -569,3 +572,4 @@ FINAL REVISION CHECKLIST
 END OF SQL MOCK INTERVIEW
 ============================================================
 */
+

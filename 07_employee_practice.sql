@@ -57,25 +57,31 @@ SELECT ENAME FROM EMP WHERE ENAME LIKE '%LL%';
 SELECT * FROM EMP
 WHERE COMM IS NULL AND DEPTNO=20;
 
--- Q15. Employees without a reporting manager
+
+-- Q15.Employees without a reporting manager
 SELECT * FROM EMP WHERE MGR IS NULL;
+
 
 -- Q16. Commission NULL and job is clerk or manager
 SELECT * FROM EMP
 WHERE COMM IS NULL AND (JOB='CLERK' OR JOB='MANAGER');
 
+
 -- Q17. Names starting with M, J or A
 SELECT ENAME FROM EMP
 WHERE ENAME LIKE 'M%' OR ENAME LIKE 'J%' OR ENAME LIKE 'A%';
 
+
 -- Q18. Employees earning commission
 SELECT ENAME, SAL FROM EMP WHERE COMM IS NOT NULL;
+
 
 -- Q19. Not hired in 1987; working as salesman or manager
 SELECT EMPNO, ENAME, SAL FROM EMP
 WHERE (HIREDATE < DATE '1987-01-01'
 OR HIREDATE >= DATE '1988-01-01')
 AND JOB IN ('SALESMAN','MANAGER');
+
 
 -- Q20. Combined conditions
 SELECT EMP.*, SAL*12 AS ANNUAL_SALARY FROM EMP

@@ -112,6 +112,7 @@ SELECT TO_DATE('20-10-2026', 'DD-MM-YYYY') AS CONVERTED_DATE
 FROM DUAL;
 
 
+
 -- Q19. Convert salary into text with two decimal places.
 SELECT FIRST_NAME,
        TO_CHAR(SALARY, '999999.00') AS SALARY_AS_TEXT

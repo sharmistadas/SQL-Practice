@@ -17,6 +17,7 @@ SELECT
 FROM Missions m
 JOIN Spacecraft s
     ON m.Spacecraft_ID = s.Spacecraft_ID
+
 ORDER BY m.Launch_Date DESC;
 
 -- EXPLANATION:

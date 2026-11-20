@@ -230,4 +230,6 @@ SELECT rm.Mission_ID, rm.Mission_Name, MAX(o.Temperature_C) AS Max_Temperature
 FROM Research_Missions rm
 JOIN Observations o ON rm.Mission_ID = o.Mission_ID
 GROUP BY rm.Mission_ID, rm.Mission_Name
-ORDER BY Max_Temperature DESC;
+ORDER BY Max_Temperature DESC; 
+ 
+ 

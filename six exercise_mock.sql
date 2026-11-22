@@ -149,7 +149,7 @@ WHERE e.End_Date > DATE '2026-01-01';
 
 -- Q4: Expedition ID, Name, max depth found for EVERY expedition (deepest first)
 -- Explanation: "Every expedition" means include ones with no discoveries too,
--- so use LEFT JOIN (those show NULL). MAX per expedition via GROUP BY.
+-- so use LEFT JOIN (those show NULL). MAX per expedition via GROUP B Y.
 -- Note: in Oracle, add NULLS LAST after DESC to push NULLs to the bottom.
 SELECT e.Expedition_ID, e.Expedition_Name, MAX(d.Depth_Found) AS Max_Depth
 FROM Expeditions e
@@ -231,5 +231,4 @@ FROM Research_Missions rm
 JOIN Observations o ON rm.Mission_ID = o.Mission_ID
 GROUP BY rm.Mission_ID, rm.Mission_Name
 ORDER BY Max_Temperature DESC; 
- 
  
